@@ -109,6 +109,14 @@
                 "send_at": {
                     "type": "integer",
                     "description": "需要发送的时间"
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "通知登记"
+                },
+                "event": {
+                    "type": "integer",
+                    "description": "事件类别"
                 }
             },
             "description": "消息定义"

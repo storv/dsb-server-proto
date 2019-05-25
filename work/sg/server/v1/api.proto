@@ -13,7 +13,7 @@ package com.sg.service.v1;
 
 // NOTE: 最后请删除这些无用的注释 (゜-゜)つロ 
 
-option go_package = "gitlab.duoshengbu.com/be/dsb-server-proto/work/sg/server/v1";
+option go_package = "github.com/storv/dsb-server-proto/work/sg/server/v1";
 option (gogoproto.goproto_getters_all) = false;
 
 service DsbApi {
