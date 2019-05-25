@@ -1,12 +1,11 @@
-module dsb-server-admin
+module gitlab.duoshengbu.com/be/dsb-server-proto
 
 go 1.12
 
 require (
 	github.com/bilibili/kratos v0.0.0-20190523065149-7df17c33ecba
-	github.com/fanliao/go-concurrentMap v0.0.0-20141114143905-7d2d7a5ea67b
-	github.com/prometheus/common v0.4.1
-	github.com/samuel/go-zookeeper v0.0.0-20180130194729-c4fab1ac1bec
-	github.com/smartystreets/goconvey v0.0.0-20190330032615-68dc04aab96a // indirect
+	github.com/gogo/protobuf v1.2.1
+	google.golang.org/appengine v1.4.0 // indirect
+	google.golang.org/genproto v0.0.0-20190522204451-c2c4e71fbf69
 	google.golang.org/grpc v1.21.0
 )
