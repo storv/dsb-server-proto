@@ -1,4 +1,4 @@
-module gitlab.duoshengbu.com/be/dsb-server-proto
+module github.com/storv/dsb-server-proto
 
 go 1.12
 
