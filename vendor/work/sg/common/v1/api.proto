@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "gogoproto/gogo.proto";
+//import "google/protobuf/empty.proto";
+import "google/api/annotations.proto";
+
+// package 命名使用 {appid}.{version} 的方式, version 形如 v1, v2 ..
+package work.sg.common.v1;
+
+// NOTE: 最后请删除这些无用的注释 (゜-゜)つロ
+
+option go_package = "work.sg.common";
+option (gogoproto.goproto_getters_all) = false;
+
+// 消息定义
+message SgMessage {
+    // 消息类别
+    SgMessageType dmt = 1;
+
+    // 自定义的消息体
+    string data = 2;
+
+    // 创建时间
+    int64 create_at = 3;
+
+    // 过期时间
+    int64 expire_at = 4;
+
+    // 需要发送的时间
+    int64 send_at = 5;
+}
+
+// 消息类型
+enum SgMessageType {
+    DMT_UNKNOWN = 0;
+    DMT_TBD = 1;
+    DMT_TRENDS = 2;
+}

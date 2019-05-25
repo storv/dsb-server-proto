@@ -1,0 +1,9 @@
+[server]
+    zk_conn_info = "127.0.0.1:2181"
+    zk_push_server_path = "/websocket/server"
+    zk_server_data_path = "/websocket/server-data"
+    idc_name = "beijing"
+    grpc_port = "8801"
+    http_port = "8802"
+    redis_host = "localhost:6379"
+    redis_pass = "foobared"

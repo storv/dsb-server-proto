@@ -1,0 +1,117 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "work/sg/server/v1/api.proto",
+        "version": "1"
+    },
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": [
+        "application/json",
+        "multipart/form-data"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/dsbServer/sendMessage": {
+            "post": {
+                "summary": "/dsbServer/sendMessage",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.com.sg.service.v1.DsbMessageResp"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.com.sg.service.v1.DsbMessageReq"
+                        }
+                    }
+                ],
+                "tags": [
+                    "com.sg.service.v1.DsbApi"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        ".com.sg.service.v1.DsbMessageReq": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "$ref": "#/definitions/.work.sg.common.v1.SgMessage",
+                    "description": "消息字节数组"
+                },
+                "user_id_list": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "用户ID"
+                }
+            },
+            "required": [
+                "message"
+            ]
+        },
+        ".com.sg.service.v1.DsbMessageResp": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "integer",
+                    "description": "状态"
+                },
+                "clients": {
+                    "type": "integer",
+                    "description": "发送的终端数"
+                }
+            }
+        },
+        ".work.sg.common.v1.SgMessage": {
+            "type": "object",
+            "properties": {
+                "dmt": {
+                    "type": "integer",
+                    "description": "消息类别"
+                },
+                "data": {
+                    "type": "string",
+                    "description": "自定义的消息体"
+                },
+                "create_at": {
+                    "type": "integer",
+                    "description": "创建时间"
+                },
+                "expire_at": {
+                    "type": "integer",
+                    "description": "过期时间"
+                },
+                "send_at": {
+                    "type": "integer",
+                    "description": "需要发送的时间"
+                }
+            },
+            "description": "消息定义"
+        }
+    }
+}
