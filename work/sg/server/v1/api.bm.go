@@ -24,7 +24,7 @@ var _ *bm.Context
 var _ context.Context
 var _ binding.StructValidator
 
-var PathDsbApiSendMessage = "/dsbServer/sendMessage"
+var PathDsbApiSendMessage = "/dsb-server/v1/sendMessage"
 
 // DsbApiBMServer is the server API for DsbApi service.
 type DsbApiBMServer interface {
@@ -45,5 +45,5 @@ func dsbApiSendMessage(c *bm.Context) {
 // RegisterDsbApiBMServer Register the blademaster route
 func RegisterDsbApiBMServer(e *bm.Engine, server DsbApiBMServer) {
 	v1DsbApiSvc = server
-	e.POST("/dsbServer/sendMessage", dsbApiSendMessage)
+	e.POST("/dsb-server/v1/sendMessage", dsbApiSendMessage)
 }

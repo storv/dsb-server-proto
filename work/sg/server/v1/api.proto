@@ -19,7 +19,7 @@ option (gogoproto.goproto_getters_all) = false;
 service DsbApi {
     rpc SendMessage (DsbMessageReq) returns (DsbMessageResp) {
         option (google.api.http) = {
-            post:"/dsbServer/sendMessage"
+            post:"/dsb-server/v1/sendMessage"
         };
     }
 }

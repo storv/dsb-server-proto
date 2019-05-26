@@ -16,9 +16,9 @@
         "application/json"
     ],
     "paths": {
-        "/dsbServer/sendMessage": {
+        "/dsb-server/v1/sendMessage": {
             "post": {
-                "summary": "/dsbServer/sendMessage",
+                "summary": "/dsb-server/v1/sendMessage",
                 "responses": {
                     "200": {
                         "description": "A successful response.",
