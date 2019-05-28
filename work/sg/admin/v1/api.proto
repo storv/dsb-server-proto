@@ -1,0 +1,25 @@
+// 定义项目 API 的 proto 文件 可以同时描述 gRPC 和 HTTP API
+// protobuf 文件参考:
+//  - https://developers.google.com/protocol-buffers/
+syntax = "proto3";
+
+import "gogoproto/gogo.proto";
+//import "google/protobuf/empty.proto";
+import "google/api/annotations.proto";
+import "work/sg/common/v1/api.proto";
+
+// package 命名使用 {appid}.{version} 的方式, version 形如 v1, v2 ..
+package com.sg.admin.service.v1;
+
+// NOTE: 最后请删除这些无用的注释 (゜-゜)つロ
+
+option go_package = "github.com/storv/dsb-server-proto/work/sg/admin/v1";
+option (gogoproto.goproto_getters_all) = false;
+
+service DsbAdminApi {
+    rpc SendMessage (work.sg.common.v1.SgMessageReq) returns (work.sg.common.v1.SgMessageResp) {
+        option (google.api.http) = {
+            post:"/dsb-admin/v1/sendMessage"
+        };
+    }
+}
