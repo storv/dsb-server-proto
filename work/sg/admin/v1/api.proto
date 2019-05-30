@@ -4,7 +4,7 @@
 syntax = "proto3";
 
 import "gogoproto/gogo.proto";
-//import "google/protobuf/empty.proto";
+import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
 import "work/sg/common/v1/api.proto";
 
@@ -20,6 +20,12 @@ service DsbAdminApi {
     rpc SendMessage (work.sg.common.v1.SgMessageReq) returns (work.sg.common.v1.SgMessageResp) {
         option (google.api.http) = {
             post:"/dsb-admin/v1/sendMessage"
+        };
+    }
+
+    rpc StatClient (google.protobuf.Empty) returns (work.sg.common.v1.CountClientResp) {
+        option (google.api.http) = {
+            post:"/dsb-admin/v1/stat"
         };
     }
 }

@@ -52,9 +52,63 @@
                     "com.sg.service.v1.DsbApi"
                 ]
             }
+        },
+        "/dsb-server/v1/stat": {
+            "post": {
+                "summary": "/dsb-server/v1/stat",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.work.sg.common.v1.CountClientResp"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.google.protobuf.Empty"
+                        }
+                    }
+                ],
+                "tags": [
+                    "com.sg.service.v1.DsbApi"
+                ]
+            }
         }
     },
     "definitions": {
+        ".google.protobuf.Empty": {
+            "type": "object",
+            "properties": {},
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\n empty messages in your APIs. A typical example is to use it as the request\n or the response type of an API method. For instance:\n\n     service Foo {\n       rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n     }\n\n The JSON representation for `Empty` is empty JSON object `{}`."
+        },
+        ".work.sg.common.v1.CountClientResp": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "ip": {
+                    "type": "string"
+                }
+            },
+            "description": "统计客户端连接数"
+        },
         ".work.sg.common.v1.SgMessage": {
             "type": "object",
             "properties": {

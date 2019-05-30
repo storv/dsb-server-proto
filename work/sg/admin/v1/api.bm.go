@@ -25,10 +25,13 @@ var _ context.Context
 var _ binding.StructValidator
 
 var PathDsbAdminApiSendMessage = "/dsb-admin/v1/sendMessage"
+var PathDsbAdminApiStatClient = "/dsb-admin/v1/stat"
 
 // DsbAdminApiBMServer is the server API for DsbAdminApi service.
 type DsbAdminApiBMServer interface {
 	SendMessage(ctx context.Context, req *work_sg_common_v1.SgMessageReq) (resp *work_sg_common_v1.SgMessageResp, err error)
+
+	StatClient(ctx context.Context, req *google_protobuf1.Empty) (resp *work_sg_common_v1.CountClientResp, err error)
 }
 
 var v1DsbAdminApiSvc DsbAdminApiBMServer
@@ -42,8 +45,18 @@ func dsbAdminApiSendMessage(c *bm.Context) {
 	c.JSON(resp, err)
 }
 
+func dsbAdminApiStatClient(c *bm.Context) {
+	p := new(google_protobuf1.Empty)
+	if err := c.BindWith(p, binding.Default(c.Request.Method, c.Request.Header.Get("Content-Type"))); err != nil {
+		return
+	}
+	resp, err := v1DsbAdminApiSvc.StatClient(c, p)
+	c.JSON(resp, err)
+}
+
 // RegisterDsbAdminApiBMServer Register the blademaster route
 func RegisterDsbAdminApiBMServer(e *bm.Engine, server DsbAdminApiBMServer) {
 	v1DsbAdminApiSvc = server
 	e.POST("/dsb-admin/v1/sendMessage", dsbAdminApiSendMessage)
+	e.POST("/dsb-admin/v1/stat", dsbAdminApiStatClient)
 }

@@ -32,6 +32,12 @@ message SgMessageResp {
     int64 clients = 2 [(gogoproto.jsontag) = 'clients'];
 }
 
+// 统计客户端连接数
+message CountClientResp {
+    int64 count = 1;
+    string ip = 2;
+}
+
 // 消息定义
 message SgMessage {
     // 消息类别
