@@ -14,10 +14,9 @@ package v1
 
 import (
 	"context"
-	google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
 	work_sg_common_v1 "github.com/storv/dsb-server-proto/work/sg/common/v1"
 
-	bm "github.com/bilibili/kratos/pkg/net/http/blademaster"
+	google_protobuf1 "github.com/bilibili/kratos/pkg/net/http/blademaster"
 	"github.com/bilibili/kratos/pkg/net/http/blademaster/binding"
 )
 
@@ -60,5 +59,5 @@ func dsbApiStatClient(c *bm.Context) {
 func RegisterDsbApiBMServer(e *bm.Engine, server DsbApiBMServer) {
 	v1DsbApiSvc = server
 	e.POST("/dsb-server/v1/sendMessage", dsbApiSendMessage)
-	e.POST("/dsb-server/v1/stat", dsbApiStatClient)
+	e.GET("/dsb-server/v1/stat", dsbApiStatClient)
 }

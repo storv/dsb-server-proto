@@ -54,7 +54,7 @@
             }
         },
         "/dsb-server/v1/stat": {
-            "post": {
+            "get": {
                 "summary": "/dsb-server/v1/stat",
                 "responses": {
                     "200": {
@@ -75,16 +75,6 @@
                         }
                     }
                 },
-                "parameters": [
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/.google.protobuf.Empty"
-                        }
-                    }
-                ],
                 "tags": [
                     "com.sg.service.v1.DsbApi"
                 ]

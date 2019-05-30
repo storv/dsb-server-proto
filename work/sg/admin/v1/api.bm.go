@@ -14,10 +14,11 @@ package v1
 
 import (
 	"context"
-	bm "github.com/bilibili/kratos/pkg/net/http/blademaster"
-	"github.com/bilibili/kratos/pkg/net/http/blademaster/binding"
-	google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
 	work_sg_common_v1 "github.com/storv/dsb-server-proto/work/sg/common/v1"
+
+	bm "github.com/bilibili/kratos/pkg/net/http/blademaster"
+	google_protobuf1 "github.com/bilibili/kratos/pkg/net/http/blademaster"
+	"github.com/bilibili/kratos/pkg/net/http/blademaster/binding"
 )
 
 // to suppressed 'imported but not used warning'
@@ -59,5 +60,5 @@ func dsbAdminApiStatClient(c *bm.Context) {
 func RegisterDsbAdminApiBMServer(e *bm.Engine, server DsbAdminApiBMServer) {
 	v1DsbAdminApiSvc = server
 	e.POST("/dsb-admin/v1/sendMessage", dsbAdminApiSendMessage)
-	e.POST("/dsb-admin/v1/stat", dsbAdminApiStatClient)
+	e.GET("/dsb-admin/v1/stat", dsbAdminApiStatClient)
 }

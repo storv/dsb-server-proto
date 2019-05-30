@@ -25,7 +25,7 @@ service DsbApi {
 
     rpc StatClient (google.protobuf.Empty) returns (work.sg.common.v1.CountClientResp) {
         option (google.api.http) = {
-            post:"/dsb-server/v1/stat"
+            get:"/dsb-server/v1/stat"
         };
     }
 }

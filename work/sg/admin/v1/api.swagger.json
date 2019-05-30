@@ -54,7 +54,7 @@
             }
         },
         "/dsb-admin/v1/stat": {
-            "post": {
+            "get": {
                 "summary": "/dsb-admin/v1/stat",
                 "responses": {
                     "200": {
@@ -75,16 +75,6 @@
                         }
                     }
                 },
-                "parameters": [
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/.google.protobuf.Empty"
-                        }
-                    }
-                ],
                 "tags": [
                     "com.sg.admin.service.v1.DsbAdminApi"
                 ]
