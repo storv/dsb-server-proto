@@ -97,14 +97,28 @@
             "properties": {},
             "description": "A generic empty message that you can re-use to avoid defining duplicated\n empty messages in your APIs. A typical example is to use it as the request\n or the response type of an API method. For instance:\n\n     service Foo {\n       rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n     }\n\n The JSON representation for `Empty` is empty JSON object `{}`."
         },
+        ".work.sg.common.v1.ClientStat": {
+            "type": "object",
+            "properties": {
+                "ip": {
+                    "type": "string"
+                },
+                "count": {
+                    "type": "string"
+                }
+            }
+        },
         ".work.sg.common.v1.CountClientResp": {
             "type": "object",
             "properties": {
-                "count": {
-                    "type": "integer"
+                "client_stat": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/.work.sg.common.v1.ClientStat"
+                    }
                 },
-                "ip": {
-                    "type": "string"
+                "total_count": {
+                    "type": "integer"
                 }
             },
             "description": "统计客户端连接数"

@@ -34,8 +34,13 @@ message SgMessageResp {
 
 // 统计客户端连接数
 message CountClientResp {
-    int64 count = 1;
-    string ip = 2;
+    repeated ClientStat client_stat = 1;
+    int32 total_count = 2;
+}
+
+message ClientStat {
+    string ip = 1;
+    string count = 2;
 }
 
 // 消息定义
