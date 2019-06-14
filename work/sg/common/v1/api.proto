@@ -20,6 +20,9 @@ message SgMessageReq {
     repeated int64 user_id_list = 2;
     // 文件的ID
     string file_id = 3;
+
+    // 排除的用户ID 主要用于不确定用户范围的推送
+    repeated int64 exclude_user_id_list = 4;
 }
 
 

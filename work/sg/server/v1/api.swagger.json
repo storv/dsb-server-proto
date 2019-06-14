@@ -164,6 +164,13 @@
                 "file_id": {
                     "type": "string",
                     "description": "文件的ID"
+                },
+                "exclude_user_id_list": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "排除的用户ID 主要用于不确定用户范围的推送"
                 }
             },
             "required": [
